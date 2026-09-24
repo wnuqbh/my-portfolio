@@ -5,7 +5,7 @@ import gsap from 'gsap';
 // ---------- Scene, camera, renderer ----------
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, 0.1, 100);
+/*const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, 0.1, 100);
 camera.position.set(9, 7, 11);
 camera.lookAt(0, 1.2, 0);
 
@@ -13,7 +13,16 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(innerWidth, innerHeight);
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.domElement.classList.add('bg');
-document.body.appendChild(renderer.domElement);
+document.body.appendChild(renderer.domElement);*/
+
+const hero = document.querySelector('.hero');
+
+const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.domElement.classList.add('hero-canvas');
+hero.prepend(renderer.domElement);
 
 // ---------- Materials ----------
 const wall   = new THREE.MeshStandardMaterial({ color: '#2a2f6b', roughness: 0.6, metalness: 0.2 });
@@ -104,9 +113,16 @@ if (isTouch) {
   }
 }
 
+// ---------- Only render while the hero is visible ----------
+let heroVisible = true;
+new IntersectionObserver(([entry]) => {
+  heroVisible = entry.isIntersecting;
+}).observe(hero);
+
 // ---------- Animation loop ----------
 let spin = 0;
 renderer.setAnimationLoop(() => {
+  if (!heroVisible) return;
   spin += 0.002;
   house.rotation.y += (spin + mouseX * 0.5 - house.rotation.y) * 0.05;
   house.rotation.x += (mouseY * 0.15 - house.rotation.x) * 0.05;
@@ -121,12 +137,14 @@ gsap.from('.hero p', { y: 40, opacity: 0, duration: 1, delay: 0.8, stagger: 0.1 
 
 // ---------- Resize ----------
 function fitCamera() {
-  camera.aspect = innerWidth / innerHeight;
-  const distance = innerWidth < 768 ? 1.6 : 1;   // move back on phones
+  const w = hero.clientWidth;
+  const h = hero.clientHeight;
+  camera.aspect = w / h;
+  const distance = w < 768 ? 1.6 : 1;
   camera.position.set(9 * distance, 7 * distance, 11 * distance);
   camera.lookAt(0, 1.2, 0);
   camera.updateProjectionMatrix();
-  renderer.setSize(innerWidth, innerHeight);
+  renderer.setSize(w, h);
 }
 fitCamera();
 addEventListener('resize', fitCamera);
