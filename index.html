@@ -10,47 +10,135 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="cursor" aria-hidden="true">
+      <div class="cursor-diamond"></div>
+      <div class="cursor-plus"></div>
+    </div>
+
     <header class="nav">
-  <a href="#home" class="logo"><span class="logo-dot"></span>UQBAH</a>
-  <nav class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="nav-actions">
-    <button class="icon-btn" id="theme-toggle" aria-label="Switch to light mode">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-    </button>
-    <a class="btn-outline" href="/resume.pdf" download>Resume</a>
-  </div>
-</header>
+      <a href="#home" class="logo"><span class="logo-dot"></span>UQBAH</a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Switch to light mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <a class="btn-outline" href="/resume.pdf" download>Resume</a>
+      </div>
+    </header>
+
     <main>
+      <!-- ---------- Hero ---------- -->
       <section class="hero" id="home">
         <div class="hero-top">
           <p class="eyebrow">Hi, I'm Uqbah</p>
-          <p class="hero-role">Computer Science Graduate</p>
+          <p class="hero-role">Web · AI · Systems</p>
         </div>
 
         <div class="hero-text">
-          <p class="eyebrow muted">Imagine a safer web</p>
+          <p class="eyebrow muted">For businesses of any size</p>
           <h1>Building systems<br>that hold up</h1>
-          <p class="hero-intro">From web apps to AI agents, I build smart, scalable systems with security built in, not bolted on.</p>
+          <p class="hero-intro">From web apps to AI agents, I build smart, scalable systems that help businesses work faster.</p>
           <div class="hero-actions">
-            <a href="#projects" class="btn-primary">View Projects →</a>
+            <a href="#contact" class="btn-primary">Start a project →</a>
+            <a href="#work" class="btn-outline">View work</a>
             <a href="https://github.com/wnuqbh" class="icon-btn" aria-label="GitHub" target="_blank">GH</a>
-            <a href="https://linkedin.com/in/[your-handle]" class="icon-btn" aria-label="LinkedIn" target="_blank">in</a>
+            <a href="https://linkedin.com/in/wanuqbah" class="icon-btn" aria-label="LinkedIn" target="_blank">in</a>
           </div>
         </div>
 
         <div class="scroll-line"><span></span></div>
         <p class="hero-hint">Drag to orbit · Scroll to explore</p>
       </section>
-      <section id="about"><h2>About</h2><p>about myself</p></section>
-      <section id="projects"><h2>Projects</h2><p>Coming soon</p></section>
-      <section id="contact"><h2>Contact</h2><p>wnuqbah@gmail.com</p></section>
+
+      <!-- ---------- About ---------- -->
+      <section id="about" class="about">
+        <div class="section-label">
+          <span class="num">01</span><span class="line"></span><span>About</span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-intro">
+            <h2 class="section-title">About me</h2>
+            <p>[Two or three sentences: who you are, what you love building, and how you help businesses.]</p>
+          </div>
+
+          <div class="about-cards">
+            <div class="card">
+              <p class="card-label">Education</p>
+              <h3>Bachelor of Computer Science</h3>
+              <p class="card-text">[University] · Graduated August 2026</p>
+            </div>
+            <div class="card">
+              <p class="card-label">Focus</p>
+              <h3>Web, AI & systems</h3>
+              <p class="card-text">Building web apps, AI agents and the systems behind them for businesses of any size.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Services ---------- -->
+      <section id="services" class="services">
+        <div class="section-label">
+          <span class="num">02</span><span class="line"></span><span>Services</span>
+        </div>
+
+        <div class="services-head">
+          <h2 class="section-title">What I can<br>build for you</h2>
+          <p class="services-intro">One developer for your website, your AI tools and the systems that connect them. No handoffs, no gaps.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card service-card">
+            <span class="service-num">01</span>
+            <h3>Web development</h3>
+            <p class="card-text">Fast, modern websites and web apps that look great on every device and turn visitors into customers.</p>
+            <div class="chips"><span class="chip">Websites</span><span class="chip">Web apps</span><span class="chip">Dashboards</span></div>
+          </article>
+
+          <article class="card service-card">
+            <span class="service-num">02</span>
+            <h3>AI agents & LLMs</h3>
+            <p class="card-text">Chatbots, assistants and automations that answer customers, handle busywork and save your team hours every week.</p>
+            <div class="chips"><span class="chip">Chatbots</span><span class="chip">Automation</span><span class="chip">LLM apps</span></div>
+          </article>
+
+          <article class="card service-card">
+            <span class="service-num">03</span>
+            <h3>Systems & integrations</h3>
+            <p class="card-text">Backends, APIs and databases that connect the tools you already use, so your data flows where it needs to.</p>
+            <div class="chips"><span class="chip">APIs</span><span class="chip">Databases</span><span class="chip">Integrations</span></div>
+          </article>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-label">Tech I use</span>
+          <div class="chips">
+            <span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">Three.js</span>
+            <span class="chip">GSAP</span><span class="chip">SQL</span><span class="chip">Vercel</span><span class="chip">Git</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Work (styled next) ---------- -->
+      <section id="work">
+        <h2>Work</h2>
+        <p>Coming soon</p>
+      </section>
+
+      <!-- ---------- Contact (styled after Work) ---------- -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>wnuqbah@gmail.com</p>
+      </section>
     </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
