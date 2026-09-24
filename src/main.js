@@ -1,4 +1,6 @@
 import './style.css';
+import gsap from 'gsap';
+
 //The stage
 import * as THREE from 'three';
 
@@ -6,8 +8,9 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
 camera.position.z = 3;
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(innerWidth, innerHeight);
+renderer.domElement.classList.add('bg');
 document.body.appendChild(renderer.domElement);
 
 //The knot and lights
@@ -21,9 +24,28 @@ const light = new THREE.DirectionalLight(0xffffff, 2);
 light.position.set(2,2,5);
 scene.add(light, new THREE.AmbientLight(0xffffff, 0.3));
 
+//Mouse tracking
+let mouseX = 0, mouseY = 0;
+addEventListener('mousemove', (e) => {
+  mouseX = e.clientX / innerWidth -0.5;
+  mouseY = e.clientY / innerHeight - 0.5;
+});
+
 //The animation
 renderer.setAnimationLoop(() =>{
   knot.rotation.x += 0.01;
   knot.rotation.y += 0.01;
+  knot.rotation.x += (mouseX * 1.5 - knot.position.x) * 0.05;
+  knot.rotation.y += (-mouseY * 1.5 - knot.position.y) * 0.5;
   renderer.render(scene, camera);
 });
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+gsap.from(knot.scale, { x: 0, y: 0, z: 0, duration: 1.5, ease: 'elastic.out(1,0.5)'});
+gsap.from('.hero h1', { y: 40, opacity: 0, duration: 1, delay: 0.3 });
+gsap.from('.hero p', { y: 40, opacity: 0, duration: 1, delay: 0.6});
