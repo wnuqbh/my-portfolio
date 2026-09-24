@@ -96,15 +96,32 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase; color: var(--muted);
 }
 
+.menu-btn {
+  display: none;
+}
+
 /* ---------- Other sections (restyled properly later) ---------- */
 section { min-height: 100vh; padding: 120px 8vw; }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
+  .menu-btn { display: inline-flex; position: relative; z-index: 30; }
+  .nav.menu-open .nav-links{ 
+    display: flex;           
+    position: fixed;          
+    inset: 0;                
+    flex-direction: column;    
+    align-items: flex-end;     
+    justify-content: center; 
+    gap: 32px;
+    background: var(--bg);
+    z-index: 20;
+  }
+  .nav, .menu-open, .nav-links a { font-size: 28px; }
   .nav { height: 68px; padding: 0 20px; }
   .nav-links, .btn-outline, .scroll-line, .hero-hint { display: none; }
   .hero { height: auto; min-height: calc(100vh - 68px); padding: 32px 20px; display: flex; flex-direction: column; justify-content: space-between; }
   .hero-top { position: relative; }
   .hero-role { font-size: 17px; letter-spacing: 5px; }
-  .hero-text { position: relative; width: 100%; }
+  .hero-text { position: relative; right: auto; bottom: auto; width: 100%; }
 }

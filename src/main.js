@@ -144,7 +144,7 @@ function place(mesh, a, b) {
   mesh.quaternion.setFromUnitVectors(UP, dir.normalize());
 }
 
-character.position.set(0, 0.1, 0);
+character.position.set(0.45, 0.3, 0.9);
 
 // ---------- Code on the screen ----------
 const code = [
@@ -285,10 +285,17 @@ gsap.from('.hero p', { y: 40, opacity: 0, duration: 1, delay: 0.8, stagger: 0.1 
 function fitCamera() {
   const w = hero.clientWidth;
   const h = hero.clientHeight;
+  const isMobile = w < 768;
+
   camera.aspect = w / h;
   const distance = w < 768 ? 1.6 : 1;
   camera.position.set(5.9 * distance, 4.7 * distance, 7.7 * distance);
-  camera.lookAt(0, 1.3, 0.3);
+  camera.lookAt(0, 1, 0.3);
+
+  character.position.x = isMobile ? 0.15 : 0.45;
+  character.position.z = isMobile ? 0.5 : 0.9;
+  camera.lookAt(0, isMobile ? 0.3 : 1, 0.3);
+
   camera.updateProjectionMatrix();
   renderer.setSize(w, h);
 }
