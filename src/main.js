@@ -290,7 +290,6 @@ function fitCamera() {
   camera.aspect = w / h;
   const distance = w < 768 ? 1.6 : 1;
   camera.position.set(5.9 * distance, 4.7 * distance, 7.7 * distance);
-  camera.lookAt(0, 1, 0.3);
 
   character.position.x = isMobile ? 0.15 : 0.45;
   character.position.z = isMobile ? 0.5 : 0.9;
@@ -313,3 +312,17 @@ if (cursor) {
     el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
   });
 }
+
+// ---------- Mobile menu ----------
+const nav = document.querySelector('.nav');
+const menuBtn = document.querySelector('.menu-btn');
+
+menuBtn.addEventListener('click', () => {
+  nav.classList.toggle('menu-open');
+});
+
+document.querySelectorAll('.nav-links a').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('menu-open');
+  });
+});
