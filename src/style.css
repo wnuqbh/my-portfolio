@@ -354,6 +354,16 @@ section { min-height: 100vh; padding: 120px 8vw; }
   border-color: var(--lilac);
   outline: none;
 }
+
+.contact-link {
+  font-size: 18px;
+  width: fit-content;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.contact-link:hover {
+    color: var(--accent);
+}
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   .menu-btn .icon-close { display: none; }
