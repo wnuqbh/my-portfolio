@@ -276,6 +276,30 @@ section { min-height: 100vh; padding: 120px 8vw; }
   text-transform: uppercase;
   color: var(--muted);
 }
+
+/*----------WORK--------*/
+.work {
+  min-height: auto;
+  border-top: 1px solid var(--border);
+}
+.work .section-title {
+  margin-bottom: 56px;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.work-link {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.work-link:hover {
+  color: var(--lilac)
+}
 .tech-row .chips { margin-top: 0; }
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
