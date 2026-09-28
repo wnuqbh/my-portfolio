@@ -304,6 +304,6 @@ section { min-height: 100vh; padding: 120px 8vw; }
   .hero-top { position: relative; top: auto; }
   .hero-role { font-size: 17px; letter-spacing: 5px; }
   .hero-text { position: relative; right: auto; bottom: auto; width: 100%; }
-` .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .services-head { flex-direction: column; align-items: flex-start; }
 }
