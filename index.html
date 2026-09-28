@@ -150,9 +150,47 @@
         </div>
       </section>
       <!-- ---------- Contact (styled after Work) ---------- -->
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>wnuqbah@gmail.com</p>
+      <section id="contact" class="contact">
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <div class="section-label">
+              <span class="num">04</span><span class="line"></span><span>Contact</span>
+            </div>
+            <h2 class="section-title">Let's talk</h2>
+            <p class="contact-intro">Have a project in mind? Tell me about it and I'll get back to you within a day.</p>
+            <a href="mailto:wnuqbh@gmail.com" class="contact-link">wnuqbh@gmail.com</a>
+            <a href="https://linkedin.com/in/wanuqbah" class="contact-link" target="_blank">LinkedIn</a>
+            <a href="https://github.com/wnuqbh" class="contact-link" target="_blank">GitHub</a>
+          </div>
+
+          <form class="card contact-form">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
+
+            <label for="service">What do you need?</label>
+            <select id="service" name="service">
+              <option>Website or web app</option>
+              <option>AI agent or chatbot</option>
+              <option>Systems & Solutions</option>
+              <option>Not sure yet</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project" required></textarea>
+
+            <button type="submit" class="btn-primary">Send message →</button>
+          </form>
+
+        </div>
+      </section>
+
+          </form>
+
+        </div>
       </section>
     </main>
 
