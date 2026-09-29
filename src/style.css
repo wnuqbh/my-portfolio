@@ -394,7 +394,7 @@ section { min-height: 100vh; padding: 120px 8vw; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .services-head { flex-direction: column; align-items: flex-start; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  
+  .footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
 }
 
 /* ---------- Custom cursor ---------- */
@@ -433,3 +433,21 @@ section { min-height: 100vh; padding: 120px 8vw; }
   body, a, button { cursor: none; }
   .cursor { display: block; }
 }
+
+
+/* ---------- Footer ---------- */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 8vw;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+.footer p { margin: 0; }
+.footer-top { transition: color 0.2s; }
+.footer-top:hover { color: var(--accent); }
